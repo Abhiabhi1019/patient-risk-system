@@ -1,0 +1,7 @@
+age,blood_pressure,cholesterol,gender,readmitted
+45,120,180,M,0
+60,140,220,F,1
+50,130,210,M,0
+70,160,250,F,1
+35,115,170,M,0
+68,150,230,F,1
