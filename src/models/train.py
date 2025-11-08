@@ -1,4 +1,5 @@
 # src/models/train.py
+from src.utils.logger import get_logger
 import pandas as pd
 import joblib
 import json
