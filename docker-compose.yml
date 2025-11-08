@@ -4,31 +4,25 @@ services:
   api:
     build:
       context: .
-      dockerfile: src/api/Dockerfile
-    container_name: patient-risk-api
+      dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "5000:5000"
     environment:
+      - PYTHONPATH=/app
       - MODEL_PATH=outputs/model.pkl
-      - PREPROCESSOR_PATH=outputs/preprocessor.joblib
-      - DB_URI=sqlite:///data/patient_data.db
-      - PORT=8000
+      - PP_PATH=outputs/preprocessor.joblib
     volumes:
       - .:/app
-    restart: always
+    command: python -m src.api.app
 
   dashboard:
     build:
       context: .
-      dockerfile: src/dashboard/Dockerfile
-    container_name: patient-risk-dashboard
-    command: streamlit run src/dashboard/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+      dockerfile: Dockerfile
     ports:
       - "8501:8501"
+    environment:
+      - PYTHONPATH=/app
     depends_on:
       - api
-    environment:
-      - API_ENDPOINT=http://api:8000/predict
-    volumes:
-      - .:/app
-    restart: always
+    command: streamlit run src/dashboard/streamlit_app.py --server.port 8501
