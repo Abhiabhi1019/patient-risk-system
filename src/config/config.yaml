@@ -1,0 +1,32 @@
+kk# src/config/config.yaml
+data:
+  raw_path: data/raw/patient_records.csv
+  processed_path: data/processed/processed.csv
+
+model:
+  save_path: outputs/model.pkl
+  preprocessor_path: outputs/preprocessor.joblib
+  metrics_path: src/models/metrics.json
+  target: readmitted
+  threshold: 0.5
+
+train:
+  test_size: 0.2
+  random_state: 42
+  model_type: RandomForestClassifier
+  n_estimators: 100
+  max_depth: 10
+
+api:
+  host: 0.0.0.0
+  port: 8000
+
+dashboard:
+  port: 8501
+
+database:
+  uri: sqlite:///data/patient_risk.db
+
+logging:
+  level: INFO
+
