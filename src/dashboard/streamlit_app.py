@@ -5,7 +5,6 @@ import os
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 if project_root not in sys.path:
     sys.path.append(project_root)
-from src.models.predict import load_artifacts, predict_dataframe
 import streamlit as st
 import pandas as pd
 import altair as alt
