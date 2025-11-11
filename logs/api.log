@@ -1,0 +1,4 @@
+2025-11-11 06:43:12 — [INFO] — api — Received data for prediction: (1, 4)
+2025-11-11 06:45:29 — [INFO] — api — Received data for prediction: (1, 4)
+2025-11-11 06:47:18 — [ERROR] — api — Prediction error: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2025-11-11 06:49:29 — [INFO] — api — Received data for prediction: (1, 4)

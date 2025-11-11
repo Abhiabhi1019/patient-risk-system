@@ -1,114 +1,102 @@
-# src/models/train.py
-from src.utils.logger import get_logger
-import pandas as pd
-import joblib
-import json
-import yaml
 import os
+import joblib
+import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
-from datetime import datetime
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import accuracy_score
 from src.utils.logger import get_logger
 
-# Initialize logger
-logger = get_logger(__name__)
+logger = get_logger("train")
 
-def load_config():
-    """Load YAML configuration."""
-    with open("src/config/config.yaml", "r") as f:
-        return yaml.safe_load(f)
 
-def load_data(path):
-    """Load processed dataset."""
-    logger.info(f"Loading data from {path}")
-    return pd.read_csv(path)
+def train_model(input_csv="data/raw/patient_records.csv", model_type="logistic_regression"):
+    logger.info(f"🚀 Starting model training using {model_type}...")
 
-def build_pipeline(categorical_features, numeric_features):
-    """Build ML preprocessing + model pipeline."""
-    numeric_transformer = Pipeline(steps=[
-        ("imputer", SimpleImputer(strategy="mean")),
-        ("scaler", StandardScaler())
+    # ✅ Load dataset
+    df = pd.read_csv(input_csv)
+
+    # ✅ Ensure 'patient_id' column exists
+    if "patient_id" not in df.columns:
+        df["patient_id"] = range(1, len(df) + 1)
+        logger.warning("⚠️ 'patient_id' not found — created sequential IDs automatically.")
+
+    # ✅ Define features and target
+    feature_cols = ["patient_id", "age", "blood_pressure", "cholesterol", "gender"]
+    target_col = "readmitted"
+
+    # Validate columns
+    missing_cols = [c for c in feature_cols + [target_col] if c not in df.columns]
+    if missing_cols:
+        raise ValueError(f"columns are missing: {set(missing_cols)}")
+
+    X = df[feature_cols]
+    y = df[target_col]
+
+    # ✅ Define preprocessing
+    numeric_features = ["age", "blood_pressure", "cholesterol"]
+    categorical_features = ["gender"]
+
+    preprocessor = ColumnTransformer([
+        ("num", StandardScaler(), numeric_features),
+        ("cat", OneHotEncoder(handle_unknown="ignore"), categorical_features)
     ])
 
-    categorical_transformer = Pipeline(steps=[
-        ("imputer", SimpleImputer(strategy="most_frequent")),
-        ("onehot", OneHotEncoder(handle_unknown="ignore"))
+    # ✅ Select classifier
+    if model_type == "logistic_regression":
+        classifier = LogisticRegression(max_iter=1000)
+    elif model_type == "random_forest":
+        classifier = RandomForestClassifier(random_state=42)
+    else:
+        raise ValueError(f"Unsupported model_type: {model_type}")
+
+    # ✅ Build pipeline
+    model = Pipeline([
+        ("preprocessor", preprocessor),
+        ("classifier", classifier)
     ])
 
-    preprocessor = ColumnTransformer(
-        transformers=[
-            ("num", numeric_transformer, numeric_features),
-            ("cat", categorical_transformer, categorical_features)
-        ]
-    )
+    # ✅ Train and evaluate
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    acc = accuracy_score(y_test, y_pred)
 
-    model = RandomForestClassifier(
-        n_estimators=100,
-        max_depth=10,
-        random_state=42
-    )
+    logger.info(f"✅ Model trained successfully. Accuracy: {acc:.2f}")
 
-    pipeline = Pipeline(steps=[("preprocessor", preprocessor), ("model", model)])
-    return pipeline
+    return model, preprocessor, {"accuracy": acc}
 
-def train_and_evaluate(config):
-    """Train model and evaluate metrics."""
-    df = load_data(config["data"]["processed_path"])
-    target = config["model"]["target"]
 
-    X = df.drop(columns=[target])
-    y = df[target]
+def save_artifacts(model, preprocessor, output_dir="artifacts"):
+    """Save trained model and preprocessor."""
+    os.makedirs(output_dir, exist_ok=True)
+    joblib.dump(model, os.path.join(output_dir, "model.joblib"))
+    joblib.dump(preprocessor, os.path.join(output_dir, "preprocessor.joblib"))
+    logger.info(f"✅ Artifacts saved in {output_dir}/")
 
-    # Separate categorical and numerical columns
-    categorical = X.select_dtypes(include=["object", "category"]).columns.tolist()
-    numerical = X.select_dtypes(include=["int64", "float64"]).columns.tolist()
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y,
-        test_size=config["train"]["test_size"],
-        random_state=config["train"]["random_state"]
-    )
+def load_artifacts(output_dir="artifacts", *args, **kwargs):
+    """Load model and preprocessor — return 3 items for compatibility."""
+    model_path = os.path.join(output_dir, "model.joblib")
+    preprocessor_path = os.path.join(output_dir, "preprocessor.joblib")
 
-    logger.info("Building pipeline...")
-    pipeline = build_pipeline(categorical, numerical)
+    if not os.path.exists(model_path) or not os.path.exists(preprocessor_path):
+        raise FileNotFoundError(f"Artifacts not found in {output_dir}. Please train the model first.")
 
-    logger.info("Training model...")
-    pipeline.fit(X_train, y_train)
+    model = joblib.load(model_path)
+    preprocessor = joblib.load(preprocessor_path)
+    logger.info(f"✅ Loaded model and preprocessor from {output_dir}/")
+    return model, preprocessor, {}  # <-- always return 3 values
 
-    logger.info("Evaluating model...")
-    y_pred = pipeline.predict(X_test)
-    y_proba = pipeline.predict_proba(X_test)[:, 1]
 
-    metrics = {
-        "accuracy": round(accuracy_score(y_test, y_pred), 4),
-        "precision": round(precision_score(y_test, y_pred), 4),
-        "recall": round(recall_score(y_test, y_pred), 4),
-        "f1_score": round(f1_score(y_test, y_pred), 4),
-        "auc": round(roc_auc_score(y_test, y_proba), 4),
-        "timestamp": datetime.utcnow().isoformat()
-    }
+def main(input_csv="data/raw/patient_records.csv", output_dir="artifacts", model_type="logistic_regression"):
+    model, preprocessor, metrics = train_model(input_csv, model_type)
+    save_artifacts(model, preprocessor, output_dir)
+    logger.info("🏁 Training pipeline finished successfully.")
 
-    logger.info(f"Metrics: {metrics}")
-
-    # Save model & metrics
-    os.makedirs("outputs", exist_ok=True)
-    model_path = config["model"]["save_path"]
-    joblib.dump(pipeline, model_path)
-
-    with open(config["model"]["metrics_path"], "w") as f:
-        json.dump(metrics, f, indent=4)
-
-    logger.info(f"Model saved to {model_path}")
-    logger.info(f"Metrics saved to {config['model']['metrics_path']}")
-    return metrics
 
 if __name__ == "__main__":
-    config = load_config()
-    metrics = train_and_evaluate(config)
-    print("✅ Training complete. Metrics:")
-    print(json.dumps(metrics, indent=4))
+    main()

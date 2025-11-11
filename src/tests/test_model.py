@@ -1,14 +1,22 @@
-# src/tests/test_model.py
-import joblib
 import pandas as pd
-from sklearn.metrics import accuracy_score
-
-def test_model_load():
-    model = joblib.load("outputs/model.pkl")
-    assert model is not None, "Model not loaded"
+import joblib
 
 def test_model_prediction():
-    df = pd.read_csv("data/processed/processed.csv").head(5)
-    model = joblib.load("outputs/model.pkl")
-    preds = model.predict(df.drop(columns=["readmitted"]))
-    assert len(preds) == len(df), "Prediction size mismatch"
+    # Load trained pipeline (which includes preprocessor + model)
+    model = joblib.load("outputs/model.joblib")
+
+    # ✅ Raw sample (each column has one value)
+    sample_data = pd.DataFrame({
+        "age": [45],
+        "bmi": [28.3],
+        "gender": ["F"],
+        "smoking_status": ["never"],
+        "blood_pressure": [120],
+        "cholesterol": [190]
+    })
+
+    # ✅ Directly predict using the pipeline
+    preds = model.predict(sample_data)
+
+    # ✅ Verify
+    assert len(preds) == 1

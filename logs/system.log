@@ -1,0 +1,118 @@
+2025-11-08 12:54:17,303 - __main__ - INFO - Loading data from data/processed/processed.csv
+2025-11-08 12:54:17,309 - __main__ - INFO - Building pipeline...
+2025-11-08 12:54:17,309 - __main__ - INFO - Training model...
+2025-11-08 12:54:17,471 - __main__ - INFO - Evaluating model...
+2025-11-08 12:54:17,500 - __main__ - INFO - Metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0, 'timestamp': '2025-11-08T07:24:17.500345'}
+2025-11-08 12:54:17,545 - __main__ - INFO - Model saved to outputs/model.pkl
+2025-11-08 12:54:17,545 - __main__ - INFO - Metrics saved to outputs/metrics.json
+2025-11-08 12:57:14,415 - __main__ - INFO - Loading model from outputs/model.pkl
+2025-11-08 12:57:15,487 - __main__ - INFO - Predicting on 6 samples...
+2025-11-08 12:59:30,389 - __main__ - INFO - Loading data from data/processed/processed.csv
+2025-11-08 12:59:30,395 - __main__ - INFO - Building pipeline...
+2025-11-08 12:59:30,395 - __main__ - INFO - Training model...
+2025-11-08 12:59:30,567 - __main__ - INFO - Evaluating model...
+2025-11-08 12:59:30,599 - __main__ - INFO - Metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0, 'timestamp': '2025-11-08T07:29:30.599138'}
+2025-11-08 12:59:30,647 - __main__ - INFO - Model saved to outputs/model.pkl
+2025-11-08 12:59:30,648 - __main__ - INFO - Metrics saved to outputs/metrics.json
+2025-11-08 13:24:38,476 - src.models.predict - INFO - Loading model from outputs/model.pkl
+2025-11-08 13:24:39,745 - src.models.predict - INFO - Predicting on 1 samples...
+2025-11-08 13:25:50,824 - src.models.predict - INFO - Loading model from outputs/model.pkl
+2025-11-08 13:25:50,855 - src.models.predict - INFO - Predicting on 1 samples...
+2025-11-08 13:27:37,529 - src.models.predict - INFO - Loading model from outputs/model.pkl
+2025-11-08 13:27:37,564 - src.models.predict - INFO - Predicting on 1 samples...
+2025-11-08 13:30:51,770 - src.db.db_client - INFO - ✅ Database initialized at data/patient_risk.db
+2025-11-08 13:30:52,754 - __main__ - INFO - ✅ Model and preprocessor loaded successfully.
+2025-11-08 13:31:55,180 - src.db.db_client - INFO - ✅ Database initialized at data/patient_risk.db
+2025-11-08 13:31:56,198 - __main__ - INFO - ✅ Model and preprocessor loaded successfully.
+2025-11-08 13:32:23,369 - __main__ - INFO - Received input: [{'age': 55, 'blood_pressure': 130, 'cholesterol': 210, 'gender': 'M'}]
+2025-11-08 13:32:23,379 - __main__ - ERROR - Prediction failed: Traceback (most recent call last):
+  File "/home/abhi/patient-risk-system/src/api/app.py", line 62, in predict
+    predictions = model.predict(X_processed)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/pipeline.py", line 788, in predict
+    Xt = transform.transform(Xt)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/compose/_column_transformer.py", line 1096, in transform
+    Xs = self._call_func_on_transformers(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/compose/_column_transformer.py", line 889, in _call_func_on_transformers
+    X=_safe_indexing(X, columns, axis=1),
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/utils/_indexing.py", line 322, in _safe_indexing
+    raise ValueError(
+ValueError: Specifying the columns using strings is only supported for dataframes.
+
+2025-11-08 13:33:51,720 - src.db.db_client - INFO - ✅ Database initialized at data/patient_risk.db
+2025-11-08 13:33:52,795 - __main__ - INFO - ✅ Model and preprocessor loaded successfully.
+2025-11-08 13:34:14,703 - src.db.db_client - INFO - ✅ Database initialized at data/patient_risk.db
+2025-11-08 13:34:15,728 - __main__ - INFO - ✅ Model and preprocessor loaded successfully.
+2025-11-08 13:34:24,677 - __main__ - INFO - Received input: [{'age': 55, 'blood_pressure': 130, 'cholesterol': 210, 'gender': 'M'}]
+2025-11-08 13:34:24,686 - __main__ - ERROR - Prediction failed: Traceback (most recent call last):
+  File "/home/abhi/patient-risk-system/src/api/app.py", line 62, in predict
+    predictions = model.predict(X_processed)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/pipeline.py", line 788, in predict
+    Xt = transform.transform(Xt)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/compose/_column_transformer.py", line 1096, in transform
+    Xs = self._call_func_on_transformers(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/compose/_column_transformer.py", line 889, in _call_func_on_transformers
+    X=_safe_indexing(X, columns, axis=1),
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/utils/_indexing.py", line 322, in _safe_indexing
+    raise ValueError(
+ValueError: Specifying the columns using strings is only supported for dataframes.
+
+2025-11-08 13:34:42,786 - __main__ - INFO - Received input: [{'age': 55, 'blood_pressure': 130, 'cholesterol': 210, 'gender': 'M'}]
+2025-11-08 13:34:42,793 - __main__ - ERROR - Prediction failed: Traceback (most recent call last):
+  File "/home/abhi/patient-risk-system/src/api/app.py", line 62, in predict
+    predictions = model.predict(X_processed)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/pipeline.py", line 788, in predict
+    Xt = transform.transform(Xt)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/compose/_column_transformer.py", line 1096, in transform
+    Xs = self._call_func_on_transformers(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/compose/_column_transformer.py", line 889, in _call_func_on_transformers
+    X=_safe_indexing(X, columns, axis=1),
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/utils/_indexing.py", line 322, in _safe_indexing
+    raise ValueError(
+ValueError: Specifying the columns using strings is only supported for dataframes.
+
+2025-11-08 13:36:16,604 - src.db.db_client - INFO - ✅ Database initialized at data/patient_risk.db
+2025-11-08 13:36:17,584 - __main__ - INFO - ✅ Model and preprocessor loaded successfully.
+2025-11-08 13:36:34,078 - src.db.db_client - INFO - ✅ Database initialized at data/patient_risk.db
+2025-11-08 13:36:35,221 - __main__ - INFO - ✅ Model and preprocessor loaded successfully.
+2025-11-08 13:36:41,947 - __main__ - INFO - Received input: [{'age': 55, 'blood_pressure': 130, 'cholesterol': 210, 'gender': 'M'}]
+2025-11-08 13:36:41,956 - __main__ - ERROR - Prediction failed: Traceback (most recent call last):
+  File "/home/abhi/patient-risk-system/src/api/app.py", line 62, in predict
+    predictions = model.predict(X_processed)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/pipeline.py", line 788, in predict
+    Xt = transform.transform(Xt)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/compose/_column_transformer.py", line 1096, in transform
+    Xs = self._call_func_on_transformers(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/compose/_column_transformer.py", line 889, in _call_func_on_transformers
+    X=_safe_indexing(X, columns, axis=1),
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/abhi/patient-risk-system/venv/lib/python3.12/site-packages/sklearn/utils/_indexing.py", line 322, in _safe_indexing
+    raise ValueError(
+ValueError: Specifying the columns using strings is only supported for dataframes.
+

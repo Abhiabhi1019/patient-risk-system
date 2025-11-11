@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "8000:8000"
     environment:
       - PYTHONPATH=/app
       - MODEL_PATH=outputs/model.pkl
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8501:8501"
+      - "8601:8501"
     environment:
       - PYTHONPATH=/app
     depends_on:

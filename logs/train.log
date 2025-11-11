@@ -1,0 +1,289 @@
+2025-11-09 16:02:09 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-09 16:02:09 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-09 16:02:09 — [INFO] — train — ✅ Model training completed.
+2025-11-09 16:02:09 — [INFO] — train — 📊 Evaluating model performance...
+2025-11-09 16:02:09 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0}
+2025-11-09 16:02:09 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-09 16:10:03 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-09 16:10:03 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-09 16:10:18 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-09 16:10:18 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-09 16:18:09 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-09 16:18:09 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-09 16:18:09 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-09 16:18:09 — [INFO] — train — ✅ Model training completed.
+2025-11-09 16:18:09 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-09 16:18:09 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-09 16:18:17 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-09 16:18:17 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-09 16:18:17 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-09 16:18:17 — [INFO] — train — ✅ Model training completed.
+2025-11-09 16:18:17 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-09 16:18:18 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-09 21:35:46 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-09 21:35:46 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-09 21:35:46 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-09 21:35:46 — [INFO] — train — ✅ Model training completed.
+2025-11-09 21:35:46 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-09 21:35:46 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 09:25:47 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 09:25:47 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 09:25:47 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 09:25:47 — [INFO] — train — ✅ Model training completed.
+2025-11-10 09:25:47 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0}
+2025-11-10 09:25:47 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 09:51:27 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 09:51:27 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 09:51:27 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 09:51:27 — [INFO] — train — ✅ Model training completed.
+2025-11-10 09:51:27 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0}
+2025-11-10 09:51:27 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 09:54:08 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 09:54:08 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 09:54:08 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 09:54:08 — [INFO] — train — ✅ Model training completed.
+2025-11-10 09:54:08 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0}
+2025-11-10 09:54:08 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 09:55:36 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 09:55:36 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 09:55:36 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 09:55:36 — [INFO] — train — ✅ Model training completed.
+2025-11-10 09:55:36 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0}
+2025-11-10 09:55:36 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 09:56:58 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 09:56:58 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 09:56:58 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 09:56:58 — [INFO] — train — ✅ Model training completed.
+2025-11-10 09:56:58 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0}
+2025-11-10 09:56:58 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 09:58:38 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 09:58:38 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 09:58:38 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 09:58:38 — [INFO] — train — ✅ Model training completed.
+2025-11-10 09:58:38 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0}
+2025-11-10 09:58:39 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 10:00:22 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 10:00:22 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 10:00:22 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 10:00:22 — [INFO] — train — ✅ Model training completed.
+2025-11-10 10:00:22 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0}
+2025-11-10 10:00:22 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 10:02:28 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 10:02:28 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 10:02:28 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 10:02:28 — [INFO] — train — ✅ Model training completed.
+2025-11-10 10:02:28 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0, 'auc': 1.0}
+2025-11-10 10:02:28 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 12:44:43 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 12:44:43 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 12:44:43 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 12:44:43 — [INFO] — train — ✅ Model training completed.
+2025-11-10 12:44:43 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-10 12:44:43 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 12:44:54 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 12:44:54 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 12:44:54 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 12:44:55 — [INFO] — train — ✅ Model training completed.
+2025-11-10 12:44:55 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-10 12:44:55 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 12:47:52 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 12:47:52 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 12:47:52 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 12:47:52 — [INFO] — train — ✅ Model training completed.
+2025-11-10 12:47:52 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-10 12:47:52 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 12:48:02 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 12:48:02 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 12:48:02 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 12:48:02 — [INFO] — train — ✅ Model training completed.
+2025-11-10 12:48:02 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-10 12:48:02 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 12:54:00 — [INFO] — train — 📂 Loading data from /home/abhi/patient-risk-system/data/processed/processed.csv
+2025-11-10 12:54:00 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 12:54:00 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 12:54:01 — [INFO] — train — ✅ Model training completed.
+2025-11-10 12:54:01 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-10 12:54:01 — [INFO] — train — 💾 Model saved to /home/abhi/patient-risk-system/outputs/model.joblib
+2025-11-10 12:56:19 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 12:56:19 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 12:56:19 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 12:56:19 — [INFO] — train — ✅ Model training completed.
+2025-11-10 12:56:19 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-10 12:56:19 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 12:59:47 — [INFO] — train — 📂 Loading data from /home/abhi/patient-risk-system/data/processed/processed.csv
+2025-11-10 12:59:47 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 12:59:47 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 12:59:48 — [INFO] — train — ✅ Model training completed.
+2025-11-10 12:59:48 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-10 12:59:48 — [INFO] — train — 💾 Model saved to /home/abhi/patient-risk-system/outputs/model.joblib
+2025-11-10 13:04:07 — [INFO] — train — 📂 Loading data from data/processed/processed.csv
+2025-11-10 13:04:07 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 13:04:07 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 13:04:07 — [INFO] — train — ✅ Model training completed.
+2025-11-10 13:04:07 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-10 13:04:07 — [INFO] — train — 💾 Model saved to outputs/model.joblib
+2025-11-10 13:04:17 — [INFO] — train — 📂 Loading data from /home/abhi/patient-risk-system/data/processed/processed.csv
+2025-11-10 13:04:17 — [INFO] — train — ⚙️ Applying preprocessor to training data...
+2025-11-10 13:04:17 — [INFO] — train — 🚀 Training random_forest model...
+2025-11-10 13:04:18 — [INFO] — train — ✅ Model training completed.
+2025-11-10 13:04:18 — [INFO] — train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-10 13:04:18 — [INFO] — train — 💾 Model saved to /home/abhi/patient-risk-system/outputs/model.joblib
+2025-11-10 14:03:54 — [INFO] — train — 🚀 Starting model training...
+2025-11-10 14:03:54 — [INFO] — train — ✅ Model and preprocessor saved in artifacts/
+2025-11-10 14:19:02 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 14:19:02 — [INFO] — train — ✅ Model training completed successfully.
+2025-11-10 14:19:02 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 14:19:02 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 14:20:46 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 14:20:46 — [INFO] — train — ✅ Model training completed successfully.
+2025-11-10 14:20:46 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 14:20:46 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 14:27:36 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 14:27:37 — [INFO] — train — ✅ Model training completed successfully.
+2025-11-10 14:27:37 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 14:27:37 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 14:33:17 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 14:33:18 — [INFO] — train — ✅ Model training completed successfully.
+2025-11-10 14:33:18 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 14:33:18 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 14:33:18 — [INFO] — train — ✅ Loaded model and preprocessor from /home/abhi/patient-risk-system/outputs/
+2025-11-10 14:37:52 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 14:37:53 — [INFO] — train — ✅ Model training completed successfully.
+2025-11-10 14:37:53 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 14:37:53 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 14:46:02 — [INFO] — train — 🚀 Starting model training using logistic_regression...
+2025-11-10 14:47:48 — [INFO] — train — 🚀 Starting model training using logistic_regression...
+2025-11-10 14:47:48 — [WARNING] — train — ⚠️ 'patient_id' column not found — generated sequential IDs automatically.
+2025-11-10 14:47:48 — [INFO] — train — ✅ Model training completed successfully.
+2025-11-10 14:47:48 — [INFO] — train — ✅ Artifacts saved in artifacts/
+2025-11-10 14:47:48 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 14:49:54 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 14:49:54 — [WARNING] — train — ⚠️ 'patient_id' column not found — generated sequential IDs automatically.
+2025-11-10 14:49:55 — [INFO] — train — ✅ Model training completed successfully.
+2025-11-10 14:49:55 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 14:49:55 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:05:39 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:05:39 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:05:39 — [INFO] — train — ✅ Model training completed successfully. Accuracy: 0.00
+2025-11-10 21:05:39 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:05:39 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:07:40 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:07:40 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:07:40 — [INFO] — train — ✅ Model training completed successfully. Accuracy: 0.00
+2025-11-10 21:07:40 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:07:40 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:15:50 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:15:50 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:15:50 — [INFO] — train — ✅ Model training completed successfully. Accuracy: 0.00
+2025-11-10 21:15:50 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:15:50 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:17:48 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:17:48 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:17:48 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:17:48 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:17:48 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:19:32 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:19:32 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:19:32 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:19:32 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:19:32 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:21:53 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:21:53 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:21:53 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:21:53 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:21:53 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:24:49 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:24:49 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:24:49 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:24:49 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:24:49 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:26:31 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:26:31 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:26:31 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:26:31 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:26:31 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:32:35 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:32:35 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:32:36 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:32:36 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:32:36 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:35:44 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:35:44 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:35:44 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:35:44 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:35:44 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:41:30 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:41:30 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:41:30 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:41:30 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:41:30 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:44:47 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:44:47 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:44:47 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:44:47 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:44:47 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:49:02 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:49:02 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:49:02 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:49:02 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:49:02 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-10 21:57:27 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-10 21:57:27 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-10 21:57:27 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-10 21:57:27 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-10 21:57:27 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:38:50 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:38:50 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:38:50 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:38:50 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:38:50 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:40:43 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:40:43 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:40:43 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:40:43 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:40:43 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:42:23 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:42:23 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:42:23 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:42:24 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:42:24 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:44:16 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:44:16 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:44:16 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:44:16 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:44:16 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:45:48 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:45:48 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:45:48 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:45:48 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:45:48 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:48:19 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:48:19 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:48:19 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:48:19 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:48:19 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:48:25 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:48:25 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:48:26 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:48:26 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:48:26 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:50:37 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:50:37 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:50:37 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:50:37 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:50:37 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:54:01 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:54:01 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:54:01 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:54:01 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:54:01 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 09:54:30 — [INFO] — train — 🚀 Starting model training using random_forest...
+2025-11-11 09:54:30 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 09:54:30 — [INFO] — train — ✅ Model trained successfully. Accuracy: 0.00
+2025-11-11 09:54:30 — [INFO] — train — ✅ Artifacts saved in /home/abhi/patient-risk-system/outputs/
+2025-11-11 09:54:30 — [INFO] — train — 🏁 Training pipeline finished successfully.
+2025-11-11 12:28:08 — [INFO] — train — 🚀 Starting model training using logistic_regression...
+2025-11-11 12:28:08 — [WARNING] — train — ⚠️ 'patient_id' not found — created sequential IDs automatically.
+2025-11-11 12:28:08 — [INFO] — train — ✅ Model trained successfully. Accuracy: 1.00
+2025-11-11 12:28:08 — [INFO] — train — ✅ Artifacts saved in artifacts/
+2025-11-11 12:28:08 — [INFO] — train — 🏁 Training pipeline finished successfully.

@@ -1,60 +1,54 @@
-from src.db.db_client import save_prediction, init_db
+# src/db/db_client.py
 
-# Initialize DB table at startup
-init_db()
-
-
-"""
-Simple DB client to store prediction logs. Default: SQLite local file `predictions.db`.
-Change DB_URL env var to point to a different DB (e.g. postgres).
-"""
-
-import os
-from sqlalchemy import create_engine, text
+import sqlite3
+import json
 from datetime import datetime
-from dotenv import load_dotenv
+from src.utils.logger import get_logger
 
-# Load environment variables
-load_dotenv()
+logger = get_logger(__name__)
 
-# Use .env or default SQLite
-DB_URL = os.environ.get("DB_URL", "sqlite:///data/patient_data.db")
 
-# Initialize DB engine
-engine = create_engine(DB_URL, echo=False)
-
-def init_db():
-    """Create the predictions table if it doesn't exist."""
-    with engine.begin() as conn:
-        conn.execute(text("""
-            CREATE TABLE IF NOT EXISTS predictions (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                patient_id TEXT,
-                probability REAL,
-                label INTEGER,
-                metadata TEXT,
-                created_at TEXT
-            )
-        """))
-    print("✅ Database initialized:", DB_URL)
-
-def save_prediction(patient_id: str, probability: float, label: int, metadata: str = None):
-    """Insert a prediction log into the database."""
-    with engine.begin() as conn:
-        conn.execute(
-            text("""
-                INSERT INTO predictions (patient_id, probability, label, metadata, created_at)
-                VALUES (:pid, :prob, :lab, :meta, :ts)
-            """),
-            {
-                "pid": patient_id,
-                "prob": float(probability),
-                "lab": int(label),
-                "meta": metadata or "",
-                "ts": datetime.utcnow().isoformat()
-            }
+# 1️⃣ Initialize the database
+def init_db(db_uri="sqlite:///data/patient_risk.db"):
+    """
+    Initialize SQLite database and create table if not exists.
+    db_uri: format 'sqlite:///path/to/db'
+    """
+    db_path = db_uri.replace("sqlite:///", "")
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS predictions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            timestamp TEXT,
+            input_data TEXT,
+            prediction INTEGER,
+            probability REAL
         )
-    print(f"📝 Prediction saved for patient {patient_id}")
+    """)
+    conn.commit()
+    conn.close()
+    logger.info(f"✅ Database initialized at {db_path}")
 
-if __name__ == "__main__":
-    init_db()
+
+# 2️⃣ Save prediction results
+def save_prediction(db_uri, input_data, prediction, probability):
+    """
+    Save a prediction entry to the database.
+    """
+    try:
+        db_path = db_uri.replace("sqlite:///", "")
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            INSERT INTO predictions (timestamp, input_data, prediction, probability)
+            VALUES (?, ?, ?, ?)
+        """, (datetime.utcnow().isoformat(), json.dumps(input_data), prediction, probability))
+
+        conn.commit()
+        conn.close()
+        logger.info("✅ Prediction saved to database.")
+
+    except Exception as e:
+        logger.error(f"❌ Failed to save prediction: {e}")

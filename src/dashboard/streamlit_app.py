@@ -1,117 +1,119 @@
-# src/dashboard/streamlit_app.py
 import streamlit as st
 import pandas as pd
-import json
-import os
-import joblib
-from src.models.predict import predict_dataframe
+import altair as alt
+from src.models.predict import load_artifacts, predict_dataframe
 
-# -----------------------------
-# 🎨 Page configuration
-# -----------------------------
-st.set_page_config(
-    page_title="🧠 Patient Risk Prediction Dashboard",
-    page_icon="🏥",
-    layout="wide"
-)
+# ===========================
+# 🩺 Streamlit Setup
+# ===========================
+st.set_page_config(page_title="Patient Risk Prediction Dashboard", layout="wide")
+st.title("🏥 Patient Readmission Risk Prediction Dashboard")
 
-st.title("🏥 Patient Readmission Risk Prediction System")
-st.markdown("This dashboard provides real-time analytics and predictions for patient readmission risk.")
+st.markdown("""
+This dashboard predicts **patient readmission risk** and provides both  
+single-patient predictions and **batch analysis with visualization**.
+""")
 
-# -----------------------------
-# 🧩 Load model & metrics
-# -----------------------------
-@st.cache_resource
-def load_model():
-    model_path = "outputs/model.pkl"
-    if not os.path.exists(model_path):
-        st.error("❌ Model file not found. Please train the model first.")
-        return None
-    return joblib.load(model_path)
+# ===========================
+# 🔧 Load Model & Preprocessor
+# ===========================
+model, preprocessor, expected_raw_columns = load_artifacts()
 
-@st.cache_data
-def load_metrics():
-    metrics_path = "outputs/metrics.json"
-    if os.path.exists(metrics_path):
-        with open(metrics_path, "r") as f:
-            return json.load(f)
-    return {}
+# ===========================
+# 🧍 Single Prediction
+# ===========================
+st.sidebar.header("🧍 Single Patient Input")
 
-model = load_model()
-metrics = load_metrics()
+age = st.sidebar.slider("Age", 18, 100, 55)
+blood_pressure = st.sidebar.number_input("Blood Pressure", 80, 200, 130)
+cholesterol = st.sidebar.number_input("Cholesterol", 100, 300, 210)
+gender = st.sidebar.selectbox("Gender", ["M", "F"])
 
-# -----------------------------
-# 📊 Metrics Section
-# -----------------------------
-st.header("📈 Model Performance")
+input_df = pd.DataFrame([{
+    "age": age,
+    "blood_pressure": blood_pressure,
+    "cholesterol": cholesterol,
+    "gender": gender
+}])
 
-if metrics:
-    col1, col2, col3, col4, col5 = st.columns(5)
-    col1.metric("Accuracy", metrics.get("accuracy", 0))
-    col2.metric("Precision", metrics.get("precision", 0))
-    col3.metric("Recall", metrics.get("recall", 0))
-    col4.metric("F1 Score", metrics.get("f1_score", 0))
-    col5.metric("AUC", metrics.get("auc", 0))
-else:
-    st.warning("⚠️ No metrics found. Train the model to generate metrics.json")
+st.subheader("📋 Input Data Preview")
+st.dataframe(input_df)
 
-# -----------------------------
-# 🧍 Prediction Section
-# -----------------------------
-st.header("🔮 Predict Patient Readmission Risk")
+if st.button("🔮 Predict for Single Patient"):
+    try:
+        result = predict_dataframe(input_df, model, preprocessor, expected_raw_columns)
+        label = result[0]["label"]
+        probability = result[0]["probability"]
 
-option = st.radio("Choose input method:", ["Upload CSV", "Manual Entry"])
+        st.metric(
+            label="Predicted Readmission Risk",
+            value=f"{probability*100:.2f}%",
+            delta="High Risk" if label == 1 else "Low Risk"
+        )
 
-if option == "Upload CSV":
-    uploaded_file = st.file_uploader("📁 Upload patient data (CSV format)", type=["csv"])
-    if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-        st.write("📋 Uploaded Data Preview:", df.head())
+        if label == 1:
+            st.warning("⚠️ The patient is at HIGH risk of readmission.")
+        else:
+            st.success("✅ The patient is at LOW risk of readmission.")
+    except Exception as e:
+        st.error(f"Prediction failed: {e}")
 
-        if st.button("Predict Readmission Risk"):
-            with st.spinner("Predicting..."):
-                results = predict_dataframe(df)
-                results_df = pd.DataFrame(results)
-                df["probability"] = results_df["probability"]
-                df["predicted_label"] = results_df["label"]
-
-                st.success("✅ Predictions complete!")
-                st.write(df.head())
-                st.download_button("⬇️ Download Predictions", df.to_csv(index=False).encode('utf-8'), "predictions.csv")
-
-elif option == "Manual Entry":
-    st.subheader("Enter Patient Details")
-    
-    age = st.slider("Age", 0, 100, 45)
-    gender = st.selectbox("Gender", ["Male", "Female"])
-    blood_pressure = st.number_input("Blood Pressure", min_value=50, max_value=200, value=120)
-    glucose = st.number_input("Glucose Level", min_value=50, max_value=300, value=100)
-    cholesterol = st.number_input("Cholesterol", min_value=100, max_value=400, value=180)
-    heart_rate = st.number_input("Heart Rate", min_value=40, max_value=200, value=80)
-
-    if st.button("Predict Risk"):
-        input_df = pd.DataFrame([{
-            "age": age,
-            "gender": gender,
-            "blood_pressure": blood_pressure,
-            "glucose": glucose,
-            "cholesterol": cholesterol,
-            "heart_rate": heart_rate
-        }])
-
-        with st.spinner("Running prediction..."):
-            result = predict_dataframe(input_df)
-            prob = result[0]["probability"]
-            label = result[0]["label"]
-
-            st.success(f"✅ Predicted Probability of Readmission: **{prob*100:.2f}%**")
-            if label == 1:
-                st.error("⚠️ High Risk of Readmission")
-            else:
-                st.info("✅ Low Risk of Readmission")
-
-# -----------------------------
-# 🧾 Footer
-# -----------------------------
+# ===========================
+# 📊 Batch Prediction Section
+# ===========================
 st.markdown("---")
-st.markdown("Built with ❤️ using Streamlit, scikit-learn, and Python.")
+st.header("📂 Batch Prediction (CSV Upload)")
+
+uploaded_file = st.file_uploader("Upload a CSV file with patient data", type=["csv"])
+
+if uploaded_file is not None:
+    try:
+        df = pd.read_csv(uploaded_file)
+        st.write("✅ File successfully uploaded.")
+        st.dataframe(df.head())
+
+        # Predict for all patients in uploaded CSV
+        results = predict_dataframe(df, model, preprocessor, expected_raw_columns)
+        results_df = pd.DataFrame(results)
+        output_df = pd.concat([df, results_df], axis=1)
+
+        st.subheader("🧠 Prediction Results")
+        st.dataframe(output_df)
+
+        # ===========================
+        # 📈 Visualization
+        # ===========================
+        st.subheader("📊 Risk Probability Distribution")
+
+        chart = (
+            alt.Chart(output_df)
+            .mark_bar()
+            .encode(
+                x=alt.X("probability:Q", bin=alt.Bin(maxbins=20), title="Predicted Probability"),
+                y=alt.Y("count()", title="Number of Patients"),
+                color=alt.Color("label:N", scale=alt.Scale(scheme="redblue"), title="Predicted Class")
+            )
+            .properties(width=700, height=400)
+        )
+
+        st.altair_chart(chart, use_container_width=True)
+
+        st.download_button(
+            label="💾 Download Predictions as CSV",
+            data=output_df.to_csv(index=False),
+            file_name="batch_predictions.csv",
+            mime="text/csv"
+        )
+
+    except Exception as e:
+        st.error(f"❌ Error processing file: {e}")
+
+# ===========================
+# 📘 Footer
+# ===========================
+st.markdown("""
+---
+📅 **Developed by:** Healthcare AI Team  
+📈 **Features:** Real-time predictions, batch processing, and visualization  
+© 2025 Patient Risk Prediction System
+""")

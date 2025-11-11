@@ -7,22 +7,27 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 import joblib
 import os
+import json  # <- import json for saving feature schema
+
+# Define the features we expect
+NUM_FEATURES = ["age", "blood_pressure", "cholesterol"]
+CAT_FEATURES = ["gender"]
 
 def preprocess_data(in_path, out_path, label_col):
-    """Clean, impute, and scale/encode the dataset."""
+    """Clean, impute, and prepare the dataset while saving the preprocessor and schema."""
     print(f"[INFO] Loading data from {in_path}")
     df = pd.read_csv(in_path)
+
+    # Keep only expected columns
+    expected_cols = NUM_FEATURES + CAT_FEATURES + [label_col]
+    df = df[expected_cols]
 
     # Separate features and label
     X = df.drop(columns=[label_col])
     y = df[label_col]
 
-    # Identify numeric and categorical columns
-    num_cols = X.select_dtypes(include=[np.number]).columns.tolist()
-    cat_cols = X.select_dtypes(exclude=[np.number]).columns.tolist()
-
-    print(f"[INFO] Numeric columns: {num_cols}")
-    print(f"[INFO] Categorical columns: {cat_cols}")
+    print(f"[INFO] Numeric columns: {NUM_FEATURES}")
+    print(f"[INFO] Categorical columns: {CAT_FEATURES}")
 
     # Numeric pipeline
     num_pipeline = Pipeline(steps=[
@@ -39,34 +44,36 @@ def preprocess_data(in_path, out_path, label_col):
     # Combine both
     preprocessor = ColumnTransformer(
         transformers=[
-            ('num', num_pipeline, num_cols),
-            ('cat', cat_pipeline, cat_cols)
+            ('num', num_pipeline, NUM_FEATURES),
+            ('cat', cat_pipeline, CAT_FEATURES)
         ]
     )
 
-    # Fit and transform the data
+    # Fit preprocessor on training data
     print("[INFO] Fitting preprocessing pipeline...")
-    X_processed = preprocessor.fit_transform(X)
+    preprocessor.fit(X)
 
-    # Get feature names
-    encoded_cols = preprocessor.named_transformers_['cat']['encoder'].get_feature_names_out(cat_cols)
-    feature_names = num_cols + list(encoded_cols)
-
-    # Convert to DataFrame
-    processed_df = pd.DataFrame(X_processed, columns=feature_names)
+    # Save original cleaned data (not encoded)
+    processed_df = X.copy()
     processed_df[label_col] = y.values
 
     # Ensure output directory exists
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
 
-    # Save processed data
+    # Save cleaned data
     processed_df.to_csv(out_path, index=False)
-    print(f"[INFO] Processed data saved to {out_path}")
+    print(f"[INFO] Cleaned (raw) data saved to {out_path}")
 
     # Save preprocessor
     os.makedirs("outputs", exist_ok=True)
     joblib.dump(preprocessor, "outputs/preprocessor.joblib")
     print("[INFO] Preprocessor saved to outputs/preprocessor.joblib")
+
+    # Save feature schema for future predictions
+    schema = {"raw_columns": NUM_FEATURES + CAT_FEATURES}
+    with open("outputs/feature_schema.json", "w") as f:
+        json.dump(schema, f)
+    print("[INFO] Feature schema saved to outputs/feature_schema.json")
 
     return processed_df
 

@@ -1,0 +1,9 @@
+2025-11-09 16:15:50 — [INFO] — src.models.train — 📂 Loading data from data/processed/processed.csv
+2025-11-09 16:15:50 — [INFO] — src.models.train — 🚀 Training random_forest model...
+2025-11-09 16:15:50 — [INFO] — src.models.train — ⚙️ Applying saved preprocessor to training data...
+2025-11-09 16:15:50 — [INFO] — src.models.train — ✅ Model training completed.
+2025-11-09 16:15:50 — [INFO] — src.models.train — 📊 Evaluating model performance...
+2025-11-09 16:15:50 — [INFO] — src.models.train — 📈 Evaluation metrics: {'accuracy': 0.0, 'precision': 0.0, 'recall': 0.0, 'f1_score': 0.0, 'auc': nan}
+2025-11-09 16:15:50 — [INFO] — src.models.train — 💾 Model saved to outputs/model.joblib
+2025-11-09 16:15:50 — [INFO] — src.models.train — 📊 Metrics saved to outputs/metrics.json
+2025-11-09 16:15:50 — [INFO] — src.models.train — ✅ Training pipeline completed successfully.
